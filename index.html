@@ -4,44 +4,34 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>PushBullet for PHP by ivkos</title>
+
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
-
+    <div class="wrapper">
       <header>
         <h1>PushBullet for PHP</h1>
-        <p>PHP class to communicate with PushBullet</p>
+        <p>PHP class for sending push notifications to Android devices running PushBullet</p>
+        <p class="view"><a href="https://github.com/ivkos/PushBullet-for-PHP">View the Project on GitHub <small>ivkos/PushBullet-for-PHP</small></a></p>
+        <ul>
+          <li><a href="https://github.com/ivkos/PushBullet-for-PHP/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/ivkos/PushBullet-for-PHP/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ivkos/PushBullet-for-PHP">View On <strong>GitHub</strong></a></li>
+        </ul>
       </header>
-
-      <div id="banner">
-        <span id="logo"></span>
-
-        <a href="https://github.com/ivkos/PushBullet-for-PHP" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/ivkos/PushBullet-for-PHP/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/ivkos/PushBullet-for-PHP/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
-
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
       <section>
-        <h1>PushBullet for PHP</h1>
+        <h1>
+<a name="pushbullet-for-php" class="anchor" href="#pushbullet-for-php"><span class="octicon octicon-link"></span></a>PushBullet for PHP</h1>
 
-<h2>Description</h2>
+<h2>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
 
 <p>Using this class, you can send push notifications to your Android devices running <strong>PushBullet</strong>.
 There are different types of notifications (i.e. notes, Google Maps addresses, to-do lists and URLs).</p>
@@ -57,13 +47,15 @@ There are different types of notifications (i.e. notes, Google Maps addresses, t
 </li>
 <li>Blog: <a href="http://blog.pushbullet.com">http://blog.pushbullet.com</a>
 </li>
-</ul><h2>Requirements</h2>
+</ul><h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
 
 <ul>
 <li>PHP 5</li>
 <li>cURL library for PHP</li>
 <li>Your PushBullet API key (get it here: <a href="https://www.pushbullet.com/settings">https://www.pushbullet.com/settings</a>)</li>
-</ul><h2>Examples</h2>
+</ul><h2>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h2>
 
 <div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 
@@ -76,7 +68,7 @@ There are different types of notifications (i.e. notes, Google Maps addresses, t
 
 
   <span class="c1">#### LIST OF DEVICES ####</span>
-  <span class="c1">#### These methods return arrays containing device definitions, or NULL when no devices found</span>
+  <span class="c1">#### These methods return arrays containing device definitions, or NULL if there are no devices</span>
   <span class="c1">// Print an array containing all available devices (including other people's devices shared with you)</span>
   <span class="nb">print_r</span><span class="p">(</span><span class="nv">$p</span><span class="o">-&gt;</span><span class="na">getDevices</span><span class="p">());</span>
 
@@ -87,26 +79,22 @@ There are different types of notifications (i.e. notes, Google Maps addresses, t
   <span class="nb">print_r</span><span class="p">(</span><span class="nv">$p</span><span class="o">-&gt;</span><span class="na">getSharedDevices</span><span class="p">());</span>
 
 
-  <span class="c1">#### PUSHING TO ONE DEVICE ####</span>
-  <span class="c1">#### PushBullet::push() and its shorthand methods return true on success, or throw an exception on failure</span>
+  <span class="c1">#### PUSHING TO A SINGLE DEVICE ####</span>
+  <span class="c1">#### Methods return TRUE on success, or throw an exception on failure</span>
   <span class="c1">// Push to device 31337 a note with a title 'Hey!' and a body 'It works!'</span>
-  <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="mi">31337</span><span class="p">,</span> <span class="s1">'note'</span><span class="p">,</span> <span class="s1">'Hey!'</span><span class="p">,</span> <span class="s1">'It works!'</span><span class="p">);</span>
   <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">pushNote</span><span class="p">(</span><span class="mi">31337</span><span class="p">,</span> <span class="s1">'Hey!'</span><span class="p">,</span> <span class="s1">'It works!'</span><span class="p">);</span>
 
   <span class="c1">// Push to device 31337 a Google Maps address with a title 'Google HQ' and an address '1600 Amphitheatre Parkway'</span>
-  <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="mi">31337</span><span class="p">,</span> <span class="s1">'address'</span><span class="p">,</span> <span class="s1">'Google HQ'</span><span class="p">,</span> <span class="s1">'1600 Amphitheatre Parkway'</span><span class="p">);</span>
   <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">pushAddress</span><span class="p">(</span><span class="mi">31337</span><span class="p">,</span> <span class="s1">'Google HQ'</span><span class="p">,</span> <span class="s1">'1600 Amphitheatre Parkway'</span><span class="p">);</span>
 
   <span class="c1">// Push to device 31337 a to-do list with a title 'Shopping List' and items 'Milk' and 'Butter'</span>
-  <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="mi">31337</span><span class="p">,</span> <span class="s1">'list'</span><span class="p">,</span> <span class="s1">'Shopping List'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Milk'</span><span class="p">,</span> <span class="s1">'Butter'</span><span class="p">));</span>
   <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">pushList</span><span class="p">(</span><span class="mi">31337</span><span class="p">,</span> <span class="s1">'Shopping List'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'Milk'</span><span class="p">,</span> <span class="s1">'Butter'</span><span class="p">));</span>
 
   <span class="c1">// Push to device 31337 a link with a title 'ivkos at GitHub' and a URL 'https://github.com/ivkos'</span>
-  <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="mi">31337</span><span class="p">,</span> <span class="s1">'link'</span><span class="p">,</span> <span class="s1">'ivkos at GitHub'</span><span class="p">,</span> <span class="s1">'https://github.com/ivkos'</span><span class="p">);</span>
   <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">pushLink</span><span class="p">(</span><span class="mi">31337</span><span class="p">,</span> <span class="s1">'ivkos at GitHub'</span><span class="p">,</span> <span class="s1">'https://github.com/ivkos'</span><span class="p">);</span>
 
 
-  <span class="c1">#### PUSHING TO MORE THAN 1 DEVICE ####</span>
+  <span class="c1">#### PUSHING TO MULTIPLE DEVICES ####</span>
   <span class="c1">// Push to all available devices</span>
   <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">pushNote</span><span class="p">(</span><span class="s1">'all'</span><span class="p">,</span> <span class="s1">'Some title'</span><span class="p">,</span> <span class="s1">'Some text'</span><span class="p">);</span>
 
@@ -114,33 +102,31 @@ There are different types of notifications (i.e. notes, Google Maps addresses, t
   <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">pushList</span><span class="p">(</span><span class="s1">'my'</span><span class="p">,</span> <span class="s1">'Buy these'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'PHP for Dummies'</span><span class="p">,</span> <span class="s1">'New charger'</span><span class="p">));</span>
 
   <span class="c1">// Push to all devices shared with you</span>
-  <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">pushAddress</span><span class="p">(</span><span class="s1">'shared'</span><span class="p">,</span> <span class="s1">'Lets meet here'</span><span class="p">,</span> <span class="s1">'The Lake, Central Park, NY'</span><span class="p">);</span>
+  <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">pushAddress</span><span class="p">(</span><span class="s1">'shared'</span><span class="p">,</span> <span class="s2">"Let's meet here"</span><span class="p">,</span> <span class="s1">'The Lake, Central Park, NY'</span><span class="p">);</span>
 
-  <span class="c1">// Push to multiple devices (defined by their IDs)</span>
+  <span class="c1">// Push to multiple devices defined by their IDs</span>
   <span class="c1">// When pushing to multiple device IDs, some of them might fail. If so, an exception saying</span>
-  <span class="c1">// which devices failed will be thrown. If a device ID isn't in the message, it means push is successful.</span>
+  <span class="c1">// which devices have failed will be thrown. If a device ID isn't in the message, it means push is successful.</span>
   <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">pushLink</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="mi">1234</span><span class="p">,</span> <span class="mi">1337</span><span class="p">,</span> <span class="mi">2013</span><span class="p">),</span> <span class="s1">'Check this out!'</span><span class="p">,</span> <span class="s1">'http://youtu.be/dQw4w9WgXcQ'</span><span class="p">);</span>
-
-  <span class="c1">// You can use the PushBullet:push() method likewise</span>
-  <span class="nv">$p</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="s1">'all'</span><span class="p">,</span> <span class="s1">'note'</span><span class="p">,</span> <span class="s1">'Some title'</span><span class="p">,</span> <span class="s1">'Some text'</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="k">catch</span> <span class="p">(</span><span class="nx">PushBulletException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Exception handling</span>
-  <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+  <span class="k">die</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
 <span class="p">}</span>
 
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 
-<h2>Future</h2>
+<h2>
+<a name="future" class="anchor" href="#future"><span class="octicon octicon-link"></span></a>Future</h2>
 
 <p>I'll try to keep this PHP class up-to-date as the PushBullet API changes. If you find any bugs or have feature requests/ideas, please use the issue tracker.</p>
       </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/ivkos">ivkos</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
-      </footer>
     </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/ivkos">ivkos</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
