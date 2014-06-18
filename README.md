@@ -74,6 +74,8 @@ try {
   $p->pushFile('0PpyWzARDK0w6et', '../pic.jpg', 'image/jpeg');
   // If the MIME type argument is omitted, an attempt to guess it will be made.
   $p->pushFile('0PpyWzARDK0w6et', '../pic.jpg');
+  // MIME type omitted, with a body message
+  $p->pushFile('0PpyWzARDK0w6et', '../pic.jpg', NULL, 'Body message.');
   
   
   #### Pushing to multiple devices
