@@ -94,7 +94,7 @@ class PushBullet {
 	}
 
 
-	private function _push($recipient, $type, $arg1, $arg2 = NULL, $arg3 = NULL)
+	private function _push($recipient, $type, $arg1, $arg2 = NULL, $arg3 = NULL, $arg4 = NULL)
 	{
 		$queryData = array();
 
@@ -155,6 +155,10 @@ class PushBullet {
 					$queryData['file_type'] = mime_content_type($fullFilePath);
 				} else {
 					$queryData['file_type'] = $arg2;
+				}
+
+				if($arg4 !== NULL){
+					$queryData['body'] = $arg4;
 				}
 
 				// Request authorization to upload a file
