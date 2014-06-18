@@ -71,7 +71,7 @@ try {
   
   // Push to device 0PpyWzARDK0w6et the file '../pic.jpg' of MIME type image/jpeg
   // Method accepts absolute and relative paths.
-  $p->pushFile('0PpyWzARDK0w6et', '../pic.jpg', 'image/jpeg');
+  $p->pushFile('0PpyWzARDK0w6et', '../pic.jpg', 'image/jpeg', 'Body message.');
   // If the MIME type argument is omitted, an attempt to guess it will be made.
   $p->pushFile('0PpyWzARDK0w6et', '../pic.jpg');
   // MIME type omitted, with a body message
