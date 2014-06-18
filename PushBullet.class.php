@@ -40,9 +40,9 @@ class PushBullet {
 		return $this->_push($recipient, 'list', $title, $items);
 	}
 
-	public function pushFile($recipient, $filePath, $mimeType = NULL)
+	public function pushFile($recipient, $filePath, $mimeType = NULL, $body = NULL)
 	{
-		return $this->_push($recipient, 'file', $filePath, $mimeType);
+		return $this->_push($recipient, 'file', $filePath, $mimeType, $body);
 	}
 
 	public function getPushHistory($modifiedAfter = 0, $cursor = NULL)
